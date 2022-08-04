@@ -1,13 +1,13 @@
 {
-  "name": "dokka-mdx-component",
+  "name": "@graphglue/dokka-docusaurus",
   "version": "1.0.0",
-  "description": "Tiny react component which can be used to display dokka html output e.g. in docusaurus",
+  "description": "Tiny react component which can be used to display dokka html output",
   "main": "src/DokkaComponent.js",
   "author": "nk-coding",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/graphglue/dokka-mdx-component"
+    "url": "https://github.com/graphglue/dokka-docusaurus"
   },
   "peerDependencies": {
     "react": "^16.8.4 || ^17.0.0",
