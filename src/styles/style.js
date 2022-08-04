@@ -389,7 +389,7 @@ code.paragraph {
 }
 
 .sideMenuPart.hidden > .navButton .navButtonContent::after {
-    content: '\02192';
+    content: '\\02192';
 }
 
 .sideMenuPart.hidden > .sideMenuPart {
@@ -1045,11 +1045,11 @@ div.runnablesample {
     }
 
     .icon-toggler::before {
-        content: "\2630";
+        content: "\\2630";
     }
 
     #leftColumn.open ~ #main .icon-toggler::before {
-        content: "\2630";
+        content: "\\2630";
         padding-right: 0.5em;
         margin-left: -0.5em;
     }
