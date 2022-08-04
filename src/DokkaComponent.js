@@ -22,8 +22,6 @@ function DokkaComponentContent(props) {
     const node = useRef(null);
 
     useEffect(() => {
-        console.log(!!node)
-        console.log(!!node.current)
         if (node.current && node.current) {
             const setupHelper = new SetupHelper(node.current)
             setupHelper.setup()
