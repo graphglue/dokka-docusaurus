@@ -6,9 +6,6 @@ import prismStyle from "./styles/prism.js"
 import root from "react-shadow"
 import { useHistory } from "react-router-dom";
 
-/**
- * The content of the Dokka component
- */
 function DokkaComponentContent(props) {
     const history = useHistory();
 
@@ -46,9 +43,6 @@ function DokkaComponentContent(props) {
     )
 }
 
-/**
- * Helper to wrap DokkaComponentContent in a shadow html to prevent style leakage
- */
 export default function DokkaComponent(props) {
 
     return (
