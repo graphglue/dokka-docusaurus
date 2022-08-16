@@ -1,4 +1,9 @@
-============================== Dokka ==============================
+============================== Kotlin/dokka ==============================
+https://github.com/Kotlin/dokka
+files (modified):
+- src/styles/main.js
+- src/styles/prism.js
+- src/styles/style.js
 Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
