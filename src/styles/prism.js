@@ -1,12 +1,23 @@
 export default `
+/*
+ * Custom Dokka styles
+ */
 code .token {
     white-space: pre;
 }
 
-/* PrismJS 1.24.1
-https://prismjs.com/download.html#themes=prism&languages=clike+java+javadoclike+kotlin&plugins=keep-markup */
 /**
- * prism.js default theme for JavaScript, CSS and HTML
+ * Styles based on webhelp's prism.js styles
+ * Changes:
+ * - Since webhelp's styles are in .pcss, they use nesting which is not achievable in native CSS
+ *   so nested css blocks have been unrolled (like dark theme).
+ * - Webhelp uses "Custom Class" prism.js plugin, so all of their prism classes are prefixed with "--prism".
+ *   Dokka doesn't seem to need this plugin at the moment, so all "--prism" prefixes have been removed.
+ * - Removed all styles related to "pre" and "code" tags. Kotlinlang's resulting styles are so spread out and complicated
+ *   that it's difficult to gather in one place. Instead use code styles defined in the main Dokka styles,
+ *   which at the moment looks fairly similar.
+ *
+ * Based on prism.js default theme
  * Based on dabblet (http://dabblet.com)
  * @author Lea Verou
  */
@@ -15,15 +26,15 @@ https://prismjs.com/download.html#themes=prism&languages=clike+java+javadoclike+
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: slategray;
+	color: var(--dokka-comment);
 }
 
 .token.punctuation {
-	color: #999;
+	color: var(--dokka-punctuation);
 }
 
 .token.namespace {
-	opacity: .7;
+	opacity: 0.7;
 }
 
 .token.property,
@@ -33,7 +44,7 @@ https://prismjs.com/download.html#themes=prism&languages=clike+java+javadoclike+
 .token.constant,
 .token.symbol,
 .token.deleted {
-	color: var(--property-color);
+	color: var(--dokka-property);
 }
 
 .token.selector,
@@ -41,37 +52,36 @@ https://prismjs.com/download.html#themes=prism&languages=clike+java+javadoclike+
 .token.string,
 .token.char,
 .token.builtin,
-.token.annotation,
 .token.inserted {
-	color: #690;
+	color: var(--dokka-string);
 }
 
 .token.operator,
 .token.entity,
 .token.url,
-.language-css .token.string,
 .style .token.string {
-	color: #9a6e3a;
-	/* This background color was intended by the author of this theme. */
-	/*background: hsla(0, 0%, 100%, .5);*/
+	color: var(--dokka-operator);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-	color: var(--keyword-color);
 	font-size: inherit; /* to override .keyword */
+	color: var(--dokka-keyword);
 }
 
-.token.function,
+.token.function {
+	color: var(--dokka-function);
+}
+
 .token.class-name {
-	color: var(--function-color);
+	color: var(--dokka-class-name);
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-	color: #e90;
+	color: var(--dokka-variable);
 }
 
 .token.important,
@@ -86,8 +96,8 @@ https://prismjs.com/download.html#themes=prism&languages=clike+java+javadoclike+
 	cursor: help;
 }
 
-.annotation,.control,.field,.filename,.keyword,.menupath,.property,.string,.value {
-	color: #27282c;
-	font-weight: 700;
+.token.operator {
+	background: none;
 }
+
 `
