@@ -31,15 +31,11 @@ export default class SetupHelper {
     showCorrespondingTabBody(element) {
         const buttonWithKey = element.querySelector("button[data-active]")
         if (buttonWithKey) {
-            const key = buttonWithKey.getAttribute("data-togglable")
-            this.root.querySelector(".tabs-section-body")
-                .querySelector("div[data-togglable='" + key + "']")
-                .setAttribute("data-active", "")
+            toggleSections(buttonWithKey)
         }
     }
     
     toggleSections(target) {
-        localStorage.setItem('active-tab', JSON.stringify(target.getAttribute("data-togglable")))
         const activateTabs = (containerClass) => {
             for (const element of this.root.querySelectorAll(containerClass)) {
                 for (const child of element.children) {
@@ -51,13 +47,24 @@ export default class SetupHelper {
                 }
             }
         }
-    
-        activateTabs(".tabs-section")
-        activateTabs(".tabs-section-body")
+        const toggleTargets = target.getAttribute("data-togglable").split(",")
+        const activateTabsBody = (containerClass) => {
+            this.root.querySelectorAll("." + containerClass + " *[data-togglable]")
+                .forEach(child => {
+                        if (toggleTargets.includes(child.getAttribute("data-togglable"))) {
+                            child.setAttribute("data-active", "")
+                        } else if(!child.classList.contains("sourceset-dependent-content")) { // data-togglable is used to switch source set as well, ignore it
+                            child.removeAttribute("data-active")
+                        }
+                })
+        }
+        activateTabs("tabs-section")
+        activateTabsBody("tabs-section-body")
     }
     
     toggleSectionsEventHandler(evt) {
         if (!evt.target.getAttribute("data-togglable")) return
+        localStorage.setItem('active-tab', JSON.stringify(evt.target.getAttribute("data-togglable")))
         this.toggleSections(evt.target)
     }
     
