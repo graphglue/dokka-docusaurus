@@ -31,7 +31,7 @@ export default class SetupHelper {
     showCorrespondingTabBody(element) {
         const buttonWithKey = element.querySelector("button[data-active]")
         if (buttonWithKey) {
-            toggleSections(buttonWithKey)
+            this.toggleSections(buttonWithKey)
         }
     }
     
